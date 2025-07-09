@@ -9,9 +9,8 @@ import os
 import sys
 import argparse
 
-# Add the project root to the path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from mine.train import StockTrainer
+# Import from current directory
+from train import StockTrainer
 
 def main():
     parser = argparse.ArgumentParser(description='Train stock prediction model on specific ticker')

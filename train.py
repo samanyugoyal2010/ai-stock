@@ -18,9 +18,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import warnings
 warnings.filterwarnings('ignore')
 
-# Add parent directory to path to import model
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from mine.model import StockPredictor, StockDataset, create_model
+# Import model from current directory
+from model import StockPredictor, StockDataset, create_model
 from png_organizer import save_plot_with_timestamp
 
 class StockTrainer:
@@ -37,9 +36,8 @@ class StockTrainer:
         if not os.path.isabs(data_dir):
             # Get the directory where this script is located
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            # Go up one level to project root, then to data directory
-            project_root = os.path.dirname(script_dir)
-            self.data_dir = os.path.join(project_root, data_dir)
+            # Use the script directory as project root
+            self.data_dir = os.path.join(script_dir, data_dir)
         else:
             self.data_dir = data_dir
             

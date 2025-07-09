@@ -7,10 +7,14 @@ A sophisticated 3-layer neural network model for predicting stock prices using P
 ```
 t-dnns/
 ├── data/                   # Stock data CSV files
-├── mine/                   # Core model and training code
-│   ├── model.py           # 3-layer PyTorch model
-│   └── train.py           # Interactive training script
+├── png/                    # Organized training plots
+├── model.py               # 3-layer PyTorch model
+├── train.py               # Interactive training script
+├── quick_train.py         # Quick training without prompts
+├── train_specific.py      # Train specific stock via command line
 ├── fetch_data.py          # Yahoo Finance data fetcher
+├── png_organizer.py       # PNG organization utilities
+├── organize_existing_pngs.py # Organize existing PNG files
 ├── requirements.txt       # Python dependencies
 └── README.md             # This file
 ```
@@ -62,7 +66,7 @@ python3 fetch_data.py
 
 ```bash
 # Run the training script
-python3 mine/train.py
+python3 train.py
 
 # Select from available tickers and configure training parameters
 ```
@@ -110,7 +114,7 @@ python3 fetch_data.py
 ### Training with Custom Parameters
 
 ```bash
-python3 mine/train.py
+python3 train.py
 # Select: 1 (AAPL)
 # Epochs: 200
 # Learning rate: 0.0005
@@ -159,13 +163,13 @@ The model typically achieves:
 - Automatic CSV file organization
 - Error handling and validation
 
-### `mine/model.py`
+### `model.py`
 - `StockPredictor`: Main 3-layer neural network
 - `StockDataset`: Custom PyTorch dataset
 - Data preprocessing and normalization
 - Model creation utilities
 
-### `mine/train.py`
+### `train.py`
 - `StockTrainer`: Complete training pipeline
 - Interactive menu system
 - Performance evaluation and metrics
@@ -176,7 +180,7 @@ The model typically achieves:
 ### Custom Model Architecture
 
 ```python
-from mine.model import create_model
+from model import create_model
 
 # Create custom model
 model = create_model(
@@ -191,7 +195,7 @@ model = create_model(
 
 ```python
 import os
-from mine.train import StockTrainer
+from train import StockTrainer
 
 trainer = StockTrainer()
 tickers = ['AAPL', 'TSLA', 'MSFT', 'GOOGL']

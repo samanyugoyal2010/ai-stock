@@ -15,9 +15,8 @@ from torch.utils.data import DataLoader, random_split
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-# Add the project root to the path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from mine.model import StockPredictor, StockDataset, create_model
+# Import model from current directory
+from model import StockPredictor, StockDataset, create_model
 from png_organizer import save_plot_with_timestamp
 
 def quick_train(ticker="AAPL", epochs=10, lr=0.001, batch_size=16, sequence_length=30):
